@@ -1,0 +1,16 @@
+<mat-list-item role="listitem" fxLayout="row" fxLayoutAlign="space-evenly none" fxLayoutGap [formGroup]="formGroup">
+    <span>{{item.description}}</span>
+    <app-counter [control]="amountFormControl"></app-counter>
+    <app-dispatch-selection [controlName]="'fulfillment'" [group]="formGroup"></app-dispatch-selection>
+    <div #origin>
+      <button mat-button (click)="show(tpl, origin)">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+
+      <ng-template #tpl let-close="close">
+        <button mat-button>Markdown</button>
+        <button mat-button (click)="onRemove(item)">Remove</button>
+      </ng-template>
+    </div>
+</mat-list-item>
+<mat-divider></mat-divider>

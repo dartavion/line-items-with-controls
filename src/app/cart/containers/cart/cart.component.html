@@ -1,0 +1,15 @@
+<form [formGroup]="cartForm">
+  {{cartForm.value | json}}
+  <mat-list role="list">
+    <app-cart-list-item
+      formArrayName="cartItems"
+      *ngFor="let item of cartFormItems.controls; let i=index"
+      [formGroup]="item"
+      [amountFormControl]="getAmount(item)"
+      [item]="cartItems[i]"
+      [index]="i"
+      (remove)="onRemove($event)">
+    </app-cart-list-item>
+  </mat-list>
+</form>
+

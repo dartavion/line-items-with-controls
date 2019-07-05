@@ -1,0 +1,9 @@
+<span [formGroup]="group">
+  <mat-radio-group
+    formControlName="{{controlName}}"
+    aria-label="Select an option">
+    <mat-radio-button
+      *ngFor="let type of fulfillmentTypes" [value]="type">
+    </mat-radio-button>
+  </mat-radio-group>
+</span>
