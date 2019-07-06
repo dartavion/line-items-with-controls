@@ -9,6 +9,7 @@ import { DispatchSelectionComponent } from './components/dispatch-selection/disp
 import { CartFormConfigService } from './services/cart-form-config.service';
 import { SharedModule } from '../shared/shared.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { MarkdownModule } from '../markdown/markdown.module';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     ReactiveFormsModule,
     SharedModule,
     FlexLayoutModule,
-    MaterialModule
+    MaterialModule,
+    MarkdownModule
   ],
   declarations: [
     CartComponent,

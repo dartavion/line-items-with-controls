@@ -8,8 +8,9 @@
       </button>
 
       <ng-template #tpl let-close="close">
-        <button mat-button>Markdown</button>
-        <button mat-button (click)="onRemove(item)">Remove</button>
+        <button mat-button (click)="onOpenModal()">Markdown</button>
+        <mat-divider></mat-divider>
+        <button mat-button (click)="onRemove()">Remove</button>
       </ng-template>
     </div>
 </mat-list-item>

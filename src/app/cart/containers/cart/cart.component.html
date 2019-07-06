@@ -6,10 +6,12 @@
       *ngFor="let item of cartFormItems.controls; let i=index"
       [formGroup]="item"
       [amountFormControl]="getAmount(item)"
-      [item]="cartItems[i]"
+      [item]="getCartItem(i)"
       [index]="i"
-      (remove)="onRemove($event)">
+      (remove)="onRemove($event)"
+      (openModal)="onOpenModal()">
     </app-cart-list-item>
   </mat-list>
 </form>
 
+<app-modal-content #markdownModal></app-modal-content>

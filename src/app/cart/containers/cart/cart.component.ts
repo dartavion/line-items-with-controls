@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormArray, FormBuilder, FormGroup } from '@angular/forms';
+import { Component, forwardRef, OnInit, ViewChild } from '@angular/core';
+import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { CartItem } from '../../models/cart-item';
 import { CartFormConfigService } from '../../services/cart-form-config.service';
+import { ModalContentComponent } from '../../../markdown/components/modal-content/modal-content.component';
 
 @Component({
   selector: 'app-cart',
@@ -9,6 +10,7 @@ import { CartFormConfigService } from '../../services/cart-form-config.service';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
+  @ViewChild('markdownModal', {static: true}) markdownModal: ModalContentComponent;
   cartForm: FormGroup;
   cartItems: CartItem[] = [];
 
@@ -54,11 +56,19 @@ export class CartComponent implements OnInit {
     this.cartFormItems.removeAt(index);
   }
 
+  getCartItem(index: number): CartItem {
+    return this.cartItems[index];
+  }
+
   getAmount(item: AbstractControl) {
-    return item.get('amount');
+    return item.get('amount') as FormControl;
   }
 
   onRemove(index: number) {
     this.removeCartItem(index);
+  }
+
+  onOpenModal() {
+    this.markdownModal.openDialog();
   }
 }
