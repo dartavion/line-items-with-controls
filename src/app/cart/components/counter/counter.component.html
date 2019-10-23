@@ -1,5 +1,14 @@
-<button mat-button>-</button>
+<!-- <button mat-stroked-button (click)="decrement(control)">-</button>
 <mat-form-field>
   <input matInput [formControl]="control" type="number" />
 </mat-form-field>
-<button mat-button>+</button>
+<button mat-stroked-button (click)="increment(control)">+</button> -->
+<pal-number-input 
+  name="counter"
+  #counter 
+  type="number"
+  ngDefaultControl
+  value="0"
+  [formControl]="control" 
+  (inputChange)="counterChange(counter.value)"
+  max-value="15"></pal-number-input>

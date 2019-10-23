@@ -1,9 +1,14 @@
 <span [formGroup]="group">
-  <mat-radio-group
+  <!-- <mat-radio-group
     formControlName="{{controlName}}"
     aria-label="Select an option">
     <mat-radio-button
       *ngFor="let type of fulfillmentTypes" [value]="type">
     </mat-radio-button>
-  </mat-radio-group>
+  </mat-radio-group> -->
+
+  <pal-radio-button-group name="demoRadioButtonGroup.controlName" #demoRadioButtonGroup [formControlName]="controlName" ngDefaultControl>
+      <pal-radio-button *ngFor="let type of fulfillmentTypes" value="{{type}}"></pal-radio-button>
+  </pal-radio-button-group>
+  
 </span>

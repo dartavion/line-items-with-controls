@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild, ElementRef } from '@angular/core';
 import { FormControl, FormControlName } from '@angular/forms';
 
 @Component({
@@ -13,9 +13,37 @@ export class CounterComponent implements OnInit {
   @Input()
   control: FormControl;
 
-  constructor() { }
+  @Output()
+  onDecrement: EventEmitter<number> = new EventEmitter();
 
-  ngOnInit() {
+  @Output()
+  onIncrement: EventEmitter<number> = new EventEmitter();
+  @ViewChild('counter', {static: true}) myPalComponent: ElementRef<HTMLPalTextInputElement>;
+
+  constructor() {
+    
   }
 
+  ngOnInit() {
+    
+  }
+  
+
+  // async someAction() {
+  //     await this.myPalComponent.nativeElement.getAttribute('');
+  // }
+
+  counterChange(event) {
+    console.log(event);
+  }
+
+  increment(control: FormControl) {
+    console.log(control.value + 1);
+    this.onIncrement.emit(control.value + 1);
+  }
+
+  decrement(control: FormControl) {
+    console.log(control.value - 1);
+    this.onDecrement.emit(control.value - 1);
+  }
 }

@@ -1,0 +1,73 @@
+@import '~@angular/material/theming';
+@include mat-core();
+$md-depot-primary: (
+  50 : #feece1,
+  100 : #fdd0b3,
+  200 : #fcb181,
+  300 : #fb924e,
+  400 : #fa7a28,
+  500 : #f96302,
+  600 : #f85b02,
+  700 : #f75101,
+  800 : #f64701,
+  900 : #f53501,
+  A100 : #ffffff,
+  A200 : #ffece8,
+  A400 : #ffc1b5,
+  A700 : #ffab9c,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #000000,
+    500 : #000000,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  )
+);
+
+$md-depot-accent: (
+  50 : #ffffff,
+  100 : #fefefe,
+  200 : #fdfdfd,
+  300 : #fcfcfc,
+  400 : #fcfcfc,
+  500 : #fbfbfb,
+  600 : #fafafa,
+  700 : #fafafa,
+  800 : #f9f9f9,
+  900 : #f8f8f8,
+  A100 : #ffffff,
+  A200 : #f85b02,
+  A400 : #ffffff,
+  A700 : #ffffff,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #000000,
+    500 : #000000,
+    600 : #000000,
+    700 : #000000,
+    800 : #000000,
+    900 : #000000,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  )
+);
+
+$home-depot-theme-primary: mat-palette($md-depot-primary);
+$home-depot-theme-accent:  mat-palette($md-depot-accent, A200, A100, A400);
+$home-depot-theme-warn:    mat-palette($mat-red);
+$home-depot-theme: mat-light-theme($home-depot-theme-primary, $home-depot-theme-accent, $home-depot-theme-warn);
+@include angular-material-theme($home-depot-theme);

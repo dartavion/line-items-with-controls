@@ -1,4 +1,4 @@
-import { Component, forwardRef, OnInit, ViewChild } from '@angular/core';
+import { Component, forwardRef, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { CartItem } from '../../models/cart-item';
 import { CartFormConfigService } from '../../services/cart-form-config.service';
@@ -11,6 +11,7 @@ import { ModalContentComponent } from '../../../markdown/components/modal-conten
 })
 export class CartComponent implements OnInit {
   @ViewChild('markdownModal', {static: true}) markdownModal: ModalContentComponent;
+  @ViewChild('sampleModal', {static: true}) sampleModal: ElementRef<HTMLPalModalElement>;
   cartForm: FormGroup;
   cartItems: CartItem[] = [];
 
@@ -42,6 +43,10 @@ export class CartComponent implements OnInit {
     });
   }
 
+  openModal() {
+    console.log('ddd')
+    this.sampleModal.nativeElement.open()
+  }
   private get cartFormItems() {
     return this.cartForm.get('cartItems') as FormArray;
   }

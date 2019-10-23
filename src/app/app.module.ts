@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { CartModule } from './cart/cart.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { CartSummaryModule } from './cart-summary/cart-summary.module';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { CartSummaryModule } from './cart-summary/cart-summary.module';
     CartSummaryModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

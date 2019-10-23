@@ -1,17 +1,57 @@
-<form [formGroup]="cartForm">
-  {{cartForm.value | json}}
-  <mat-list role="list">
-    <app-cart-list-item
-      formArrayName="cartItems"
-      *ngFor="let item of cartFormItems.controls; let i=index"
-      [formGroup]="item"
-      [amountFormControl]="getAmount(item)"
-      [item]="getCartItem(i)"
-      [index]="i"
-      (remove)="onRemove($event)"
-      (openModal)="onOpenModal()">
-    </app-cart-list-item>
-  </mat-list>
-</form>
+<div fxLayout="row">
+  <div>
+    <form [formGroup]="cartForm">
+      <mat-list role="list">
+        <app-cart-list-item formArrayName="cartItems" *ngFor="let item of cartFormItems.controls; let i = index"
+          [formGroup]="item" [amountFormControl]="getAmount(item)" [item]="getCartItem(i)" [index]="i"
+          (remove)="onRemove($event)" (openModal)="onOpenModal()">
+        </app-cart-list-item>
+      </mat-list>
+    </form>
 
-<app-modal-content #markdownModal></app-modal-content>
+    <app-modal-content #markdownModal></app-modal-content>
+    <pre>{{ cartForm.value | json }}</pre>
+  </div>
+  <div>
+    <div>
+      <pal-modal id="sampleModal" #sampleModal class="hydrated">
+        <!---->
+        <div class="pal--modal">
+          <div class="pal--modal__wrapper">
+            <article class="pal--card pal--layer-flat" tabindex="0">
+              <header class="pal--card__header">
+                <span aria-label="close" tabindex="0" class="pal--modal-close"></span>
+                <div slot="header">
+                  <h3>Standard Card</h3>
+                </div>
+              </header>
+              <section class="pal--card__body">
+                <div slot="body">
+                  This is some content for the card. It can be text, HTML or
+                  other components. It can be as long or short as you need it to
+                  be.
+                </div>
+              </section>
+              <footer class="pal--card__footer">
+                <div slot="footer">
+                  <pal-button type="secondary" size="small" onclick="closeModal()" class="hydrated">
+                    <!----><button type="button" class="pal--button pal--button--secondary pal--button--small">
+                      Close
+                    </button></pal-button>
+                  <pal-button type="primary" size="small" onclick="closeModal()" class="hydrated">
+                    <!----><button type="button" class="pal--button pal--button--primary pal--button--small">
+                      Submit
+                    </button></pal-button>
+                </div>
+              </footer>
+            </article>
+          </div>
+        </div>
+      </pal-modal>
+      <pal-button name="mOpen" (click)="openModal()" class="hydrated">
+        <!----><button type="button" class="pal--button pal--button--primary pal--button--large">
+          Open Modal
+        </button></pal-button>
+    </div>
+  </div>
+</div>

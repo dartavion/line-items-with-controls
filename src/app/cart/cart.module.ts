@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CartComponent } from './containers/cart/cart.component';
 import { CartListItemComponent } from './components/cart-list-item/cart-list-item.component';
@@ -36,6 +36,7 @@ import { MarkdownModule } from '../markdown/markdown.module';
   ],
   exports: [
     CartComponent
-  ]
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class CartModule { }
